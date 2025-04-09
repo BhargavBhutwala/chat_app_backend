@@ -20,7 +20,7 @@ import com.substring.chat.chat_app_backend.repositories.RoomRepository;
 
 @RestController
 @RequestMapping("/api/v1/room")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:5173")
 public class RoomController {
 
    @Autowired
@@ -71,8 +71,8 @@ public class RoomController {
 
       List<Message> messages = room.getMessages();
 
-      int start = Math.max(0, messages.size() - (page + 1) * size);
-      int end = Math.min(messages.size(), page * size);
+      int end = messages.size() - page * size;
+      int start = Math.max(0, end - size);
 
       List<Message> pageMessages = messages.subList(start, end);
 

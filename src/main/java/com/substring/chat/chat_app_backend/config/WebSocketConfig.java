@@ -35,7 +35,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
       // The method .withSockJS() enables SockJS fallback options, which ensures that
       // if a WebSocket connection cannot be established, SockJS will simulate one,
       // thereby ensuring robust communication
-      registry.addEndpoint("/chat").setAllowedOrigins("*").withSockJS();
+      registry.addEndpoint("/chat").setAllowedOrigins("http://localhost:5173").withSockJS();
    }
 
 }

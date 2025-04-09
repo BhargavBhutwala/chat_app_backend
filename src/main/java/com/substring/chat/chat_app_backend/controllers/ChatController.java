@@ -16,7 +16,7 @@ import com.substring.chat.chat_app_backend.repositories.RoomRepository;
 import com.substring.chat.payload.MessageRequest;
 
 @Controller
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:5173")
 public class ChatController {
 
    @Autowired
@@ -27,7 +27,7 @@ public class ChatController {
    // like a controller endpoint specifically for incoming WebSocket messages
    @MessageMapping("/sendMessage/{roomId}")
    // This tells Spring that after processing the incoming message, the return
-   // value should be sent to all clients that are subscribed to the
+   // value (Message) should be sent to all clients that are subscribed to the
    // /topic/room/{roomId} destination. It broadcasts the message to everyone in
    // the specific chat room
    @SendTo("/topic/room/{roomId}")
